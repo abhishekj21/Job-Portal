@@ -1,7 +1,7 @@
 import React from "react";
 
-const SaveJobs = () => {
+const SavedJobs = () => {
   return <div>SaveJobs</div>;
 };
 
-export default SaveJobs;
+export default SavedJobs;
