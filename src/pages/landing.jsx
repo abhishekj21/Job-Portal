@@ -68,17 +68,19 @@ const LandingPage = () => {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card>
           <CardHeader>
-            <CardTitle>For Job Seekers</CardTitle>
+            <CardTitle className="text-center">For Job Seekers</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="text-center">
             Search and apply for jobs, track applications and more
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>For Employee</CardTitle>
+            <CardTitle className="text-center">For Employee</CardTitle>
           </CardHeader>
-          <CardContent>Post jobs, manage applications, and more</CardContent>
+          <CardContent className="text-center">
+            Post jobs, manage applications, and more
+          </CardContent>
         </Card>
       </section>
       {/* Accordion */}

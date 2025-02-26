@@ -1,5 +1,5 @@
 import { useUser } from "@clerk/clerk-react";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
   const { isSignedIn, user, isLoaded } = useUser();
@@ -7,6 +7,9 @@ const ProtectedRoute = ({ children }) => {
   if (isLoaded && !isSignedIn && isSignedIn !== undefined) {
     return <Navigate to="/?sign-in=true" />;
   }
+
+  // check onboarding status
+
   return children;
 };
 

@@ -16,6 +16,7 @@ const Header = () => {
   const [search, setSearch] = useSearchParams();
 
   useEffect(() => {
+    // If the URL contains ?sign-in=true, the modal(signUp and signIn page) is opened automatically
     if (search.get("sign-in") === "true") {
       setShowSignIn(true);
     }
@@ -36,6 +37,7 @@ const Header = () => {
         <div className="flex gap-8">
           <SignedOut>
             {/* <SignInButton /> */}
+            {/* if we are not signIn means signOut then login button will appear and when we click at that login button then auth form is popup at screen when showSignIn become true */}
             <Button variant="outline" onClick={() => setShowSignIn(true)}>
               Login
             </Button>
@@ -65,6 +67,7 @@ const Header = () => {
           </SignedIn>
         </div>
       </nav>
+      {/* here is that form of auth  */}
       {showSignIn && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
