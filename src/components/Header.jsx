@@ -7,12 +7,13 @@ import {
   SignIn,
   SignInButton,
   UserButton,
+  useUser,
 } from "@clerk/clerk-react";
 import { BriefcaseBusiness, Heart, PenBox } from "lucide-react";
 
 const Header = () => {
   const [showSignIn, setShowSignIn] = useState(false);
-
+  const user = useUser();
   const [search, setSearch] = useSearchParams();
 
   useEffect(() => {
@@ -43,12 +44,15 @@ const Header = () => {
             </Button>
           </SignedOut>
           <SignedIn>
-            {/* add a condition here */}
-            <Button variant="destructive" className="rounded-full">
-              <PenBox size={20} className="mr-2" />
-              Post a job
-            </Button>
-            <Link to="/post-job"></Link>
+            {user?.unsafeMetadata?.role === "recruiter" && (
+              // if user is recruiter then post job button will appear
+              <Link to="/post-job">
+                <Button variant="destructive" className="rounded-full">
+                  <PenBox size={20} className="mr-2" />
+                  Post a job
+                </Button>
+              </Link>
+            )}
             <UserButton>
               <UserButton.MenuItems>
                 {/* after login when i click at user profile then there you can find this like -> Saved Jobs,My Jobs sections  */}

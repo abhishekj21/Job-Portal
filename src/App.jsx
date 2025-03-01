@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./layouts/app-layout";
 import LandingPage from "./pages/landing";
-import Onboarding from "./pages/onboarding";
+import Onboarding from "./pages/Onboarding";
 import JobListing from "./pages/job-listing";
 import JobPage from "./pages/job";
 import PostJob from "./pages/post-job";
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/saved-job",
+        path: "/saved-jobs",
         element: (
           <ProtectedRoute>
             <SavedJobs />

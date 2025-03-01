@@ -9,6 +9,14 @@ const ProtectedRoute = ({ children }) => {
   }
 
   // check onboarding status
+  //The code ensures users without a role are sent to /onboarding before they can proceed.
+  if (
+    user !== undefined &&
+    !user?.unsafeMetadata?.role &&
+    pathname !== "/onboarding"
+  ) {
+    return <Navigate to="/onboarding" />;
+  }
 
   return children;
 };
